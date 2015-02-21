@@ -6,6 +6,7 @@ urls = (
     "/search", "search"
 )
 app = web.application(urls, globals())
+application = app.wsgifunc()
 
 class search:
     def GET(self):
