@@ -1,0 +1,4 @@
+web.py
+beautifulsoup4
+requests
+lxml
