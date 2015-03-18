@@ -1,6 +1,6 @@
 import web
 import json
-from . import voterlib
+from . import parsers
 
 urls = (
     "/search", "search"
@@ -20,9 +20,9 @@ class search:
 
     def GET(self):
         self.OPTIONS()
-        i = web.input()
+        i = web.input(state="KA", district="21")
         voterid = i.get("voterid")
-        data = voterlib.get_voter_details(voterid)
+        data = parsers.get_voter_details(i.state, i.district, voterid)
         web.header("content-type", "application/json")
         return json.dumps(data)
 
