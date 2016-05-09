@@ -4,10 +4,18 @@ import json
 from . import parsers
 
 urls = (
+    "/", "index",
     "/search", "search"
 )
 app = web.application(urls, globals())
 application = app.wsgifunc()
+
+class index:
+    def GET(self):
+        html = open("static/index.html")
+        web.header("Content-type", "text/html")
+        return html
+
 
 class search:
     def OPTIONS(self):

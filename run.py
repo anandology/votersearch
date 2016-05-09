@@ -1,4 +1,4 @@
-from votersearch.webapp import app
+from votersearch.webapp import main
 
 if __name__ == "__main__":
-    app.run()
+    main()

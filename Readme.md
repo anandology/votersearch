@@ -32,3 +32,19 @@ Possible Use Cases
 ------------------
 
 It may be useful for mapping a Voter ID to a polling booth and/or validating a Voter ID when filling a web form.
+
+How to run
+----------
+
+Install required python libraries using:
+
+	$ pip install -r requirements.txt
+
+To search for a voter ID from command-line:
+
+	$ python run.py KA 1 ABC1234567
+	{...}
+
+To run the development web server:
+
+	$ python run.py
