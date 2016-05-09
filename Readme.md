@@ -7,24 +7,28 @@ Election Commission already provided a website <http://electoralsearch.in/> with
 
 The goal of this application is to provide uniform API to search for voter info of any state given voter id. Since the state election commission websites usually ask for the district, the API will have to be mirror that.
 
-Proposed API
-------------
+This currently supports only Karnataka.
 
-* `/search?state=KA&district=12&voterid=ABC1234567`
+API
+---
 
-Searches for voter in given state and district.
+The API has just one end point to search for an voterid. It expects two-letter state code, district number and voterid.
 
-* `/search?state=KA&ac=135&voterid=ABC1234567`
+Example:
 
-Searches for voter in given assembly constituency.
+$ curl 'http://voter.missionvistaar.in/search?state=KA&district=1&voterid=ABC1234567'
+{
+	"voterid": "ABC1234567",
+	"name": "Kannadiga",
+	"relname": "Kannadigappa",
+	"age": "36",
+	"sex": "M"
+	"ac": "18",
+	"part": "1",
+	"serial": "123",
+}
 
-Web Interface
--------------
+Possible Use Cases
+------------------
 
-It may be useful to provide a web interface to search by voterid by filling a form.
-
-Implementation
---------------
-
-For implementing this we'll have to write one parser for each state. The implementation may cache the results temporarily for some time, should not be stored permanantly. 
-
+It may be useful for mapping a Voter ID to a polling booth and/or validating a Voter ID when filling a web form.

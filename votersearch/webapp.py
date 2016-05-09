@@ -1,3 +1,4 @@
+import sys
 import web
 import json
 from . import parsers
@@ -13,7 +14,6 @@ class search:
         web.header("Access-Control-Allow-Origin", "*")
         web.header("Access-Control-Allow-Methods", "GET")
         headers = web.ctx.env.get('HTTP_ACCESS_CONTROL_REQUEST_HEADERS')
-        print web.ctx.env
         if headers:
             web.header("Access-Control-Allow-Headers", headers)
         return ""
@@ -26,5 +26,13 @@ class search:
         web.header("content-type", "application/json")
         return json.dumps(data)
 
+def main():
+    if "--search" in sys.argv:
+        sys.argv.remove("--search")
+        state, district, voterid = sys.argv[1:]
+        print parsers.get_voter_details(state, district, voterid)
+    else:
+        app.run()
+
 if __name__ == '__main__':
-    app.run()
+    main()

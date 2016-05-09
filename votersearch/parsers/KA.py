@@ -45,4 +45,3 @@ class Parser(BaseParser):
         }
         logger.info("voter info %s %s", voterid, d2)    
         return d2
-
