@@ -26,7 +26,7 @@ class BaseParser(object):
     def get_formdata(self):
         soup = self.get_soup()
         inputs = soup.find_all("input", attrs={"type": "hidden"})
-        formdata = {f['name']: f['value'] for f in inputs}
+        formdata = {f['name']: f.get('value') for f in inputs}
 
         formdata['__EVENTTARGET'] = ''
         formdata['__EVENTARGUMENT'] = ''

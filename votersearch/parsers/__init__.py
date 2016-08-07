@@ -1,8 +1,9 @@
-from . import KA, KL
+from . import KA, KL, GA
 
 PARSERS = {
     "KA": KA.Parser(),
     "KL": KL.Parser(),
+    "GA": GA.Parser()
 }
 
 def get_parser(state):
